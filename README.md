@@ -18,7 +18,7 @@ JSON Converter Swing ist eine Java-Anwendung, die Benutzereingaben in JSON-Forma
    - Klone das Repository: `git clone https://github.com/Flo1632/JSON-Converter-Swing.git`
    - Importiere das Projekt in deinen Editor.
    - Baue und führe das Projekt aus.
-   - **Alternativ:** Nutze die .jar-Datei zum ausführen (JDK) ist requred
+   - **Alternativ:** Nutze die .jar-Datei zum ausführen (JDK) ist required
 
 ## Verwendung
 1. Starte die Anwendung.
