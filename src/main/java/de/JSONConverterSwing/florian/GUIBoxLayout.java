@@ -103,7 +103,7 @@ public class GUIBoxLayout {
         JTextField setzeOutputFormatField = new JTextField("JSON, Text, Tabelle");
         allgemeinesJson.add(setzeOutputFormatField);
 
-        JButton speichernAllgemeinesJson = new JButton("Speichern ");
+        JButton speichernAllgemeinesJson = new JButton("JSON generieren ");
         allgemeinesJson.add(speichernAllgemeinesJson);
 
         JTextArea jsonFromatted = new JTextArea("");
@@ -152,7 +152,7 @@ public class GUIBoxLayout {
         dataBasePanel.add(dataFieldsField);
 
         // Button zum Speichern
-        JButton dataBaseButton = new JButton("Speichern");
+        JButton dataBaseButton = new JButton("JSON generieren ");
         dataBasePanel.add(dataBaseButton);
 
 
@@ -216,7 +216,7 @@ public class GUIBoxLayout {
         blog.add(outputFormatField);
 
         // Speichern Button
-        JButton outputBlogFormatButton = new JButton("Speichern");
+        JButton outputBlogFormatButton = new JButton("JSON generieren ");
         blog.add(outputBlogFormatButton);
         JTextArea outputFormatTextArea = new JTextArea("");
         //JScrollPane outputFormatScrollPane = new JScrollPane(outputFormatTextArea);
