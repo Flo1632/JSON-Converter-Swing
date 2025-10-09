@@ -271,7 +271,7 @@ public class GUIBoxLayout {
         JPanel descriptionPanel = new JPanel(new FlowLayout());
         JTextArea descriptionTextArea = new JTextArea("1. Wähle eine Vorlage \n" +
                 "2. Fülle die Vorlage, Textfelder können auch leer sein \n" +
-                "3. Drücke Speichern, um im unteren Textfeld deinen Prompt im JSON-Format zu sehen\n" +
+                "3. Drücke \"JSON generieren\", um im unteren Textfeld deinen Prompt im JSON-Format zu sehen\n" +
                 "4. Kopiere den Prompt und nutze ihn mit einem KI Modell deiner Wahl\n" +
                 "5. Ganz unten siehst du Kurzbefehle, um Teile deines JSON abzufragen");
         descriptionTextArea.setPreferredSize(new Dimension(600, 100));
