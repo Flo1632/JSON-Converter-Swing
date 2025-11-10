@@ -33,14 +33,16 @@ public class BlogIdeaPrompt {
     String targetAudience;
     int quantity;
     String outputFormat;
+    String doNotDo;
 
     // Constructor
-    public BlogIdeaPrompt(String task1, String task2, String task3, String topic, String targetAudience, int quantity, String outputFormat) {
+    public BlogIdeaPrompt(String task1, String task2, String task3, String topic, String targetAudience, int quantity, String outputFormat, String doNotDo) {
         this.tasks = new Task(task1, task2, task3);
         this.topic = topic;
         this.targetAudience = targetAudience;
         this.quantity = quantity;
         this.outputFormat = outputFormat;
+        this.doNotDo = doNotDo;
     }
     // Getter und Setter
     public Task getTask() {
@@ -60,5 +62,23 @@ public class BlogIdeaPrompt {
     }
     public void setTargetAudience(String targetAudience) {
         this.targetAudience = targetAudience;
+    }
+    public int getQuantity() {
+        return quantity;
+    }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+    public String getOutputFormat() {
+        return outputFormat;
+    }
+    public void setOutputFormat(String outputFormat) {
+        this.outputFormat = outputFormat;
+    }
+    public String getDoNotDo() {
+        return doNotDo;
+    }
+    public void setDoNotDo(String doNotDo) {
+        this.doNotDo = doNotDo;
     }
 }

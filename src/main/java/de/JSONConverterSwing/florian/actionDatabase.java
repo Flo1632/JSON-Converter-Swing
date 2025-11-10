@@ -9,12 +9,14 @@ public class actionDatabase {
     String  name;
     String userId;
     String[] fields;
+    String doNotDo;
 
     // Constructor
-    public actionDatabase(String name, String userId, String[] fields) {
+    public actionDatabase(String name, String userId, String[] fields, String doNotDo) {
         this.name = name;
         this.userId = userId;
         this.fields = fields;
+        this.doNotDo = doNotDo;
     }
     // Getter und Setter
     public String getName() {
@@ -34,5 +36,11 @@ public class actionDatabase {
     }
     public void setFields(String[] fields) {
         this.fields = fields;
+    }
+    public String getDoNotDo() {
+        return doNotDo;
+    }
+    public void setDoNotDo(String doNotDo) {
+        this.doNotDo = doNotDo; 
     }
 }
