@@ -354,6 +354,81 @@ public class GUIBoxLayout {
         roleBasedPanel.setAlignmentY(Component.TOP_ALIGNMENT);
         roleBasedPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
         
+        JLabel roleLabel = new JLabel("Welche Rolle soll das Modell einnehmen?");
+        roleLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        roleBasedPanel.add(roleLabel);
+        JTextField roleField = new JTextField("z.B. Experte für Marketing, Programmmierer, Koch");
+        roleField.setAlignmentX(Component.LEFT_ALIGNMENT);
+        roleBasedPanel.add(roleField);
+        JLabel objectiveLabel = new JLabel("Was ist das Ziel/Objective?");
+        objectiveLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        roleBasedPanel.add(objectiveLabel);
+        JTextField objectiveField = new JTextField("z.B. Erstelle einen Marketingplan, schreibe Code, erstelle ein Rezept");
+        objectiveField.setAlignmentX(Component.LEFT_ALIGNMENT);
+        roleBasedPanel.add(objectiveField);
+        JLabel taskLabel = new JLabel("Was ist die Aufgabe/der Task?");
+        taskLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        roleBasedPanel.add(taskLabel);
+        JTextField taskField = new JTextField("z.B. Erstelle eine Liste von Ideen, schreibe eine Funktion, erstelle eine Einkaufsliste");
+        taskField.setAlignmentX(Component.LEFT_ALIGNMENT);
+        roleBasedPanel.add(taskField);
+        JLabel styleLabel = new JLabel("In welchem Stil soll der Output erfolgen?");
+        styleLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        roleBasedPanel.add(styleLabel);
+        JTextField styleField = new JTextField("z.B. formell, informell, technisch, einfach");
+        styleField.setAlignmentX(Component.LEFT_ALIGNMENT);
+        roleBasedPanel.add(styleField);
+        JLabel lengthLabel = new JLabel("Wie lang soll der Output sein (in Zeichen)?");
+        lengthLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        roleBasedPanel.add(lengthLabel);
+        JTextField lengthField = new JTextField("z.B. 400 Zeichen");
+        lengthField.setAlignmentX(Component.LEFT_ALIGNMENT);
+        roleBasedPanel.add(lengthField);
+        JLabel outputFormatRoleLabel = new JLabel("Spezifiziere das Output-Format");
+        outputFormatRoleLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        roleBasedPanel.add(outputFormatRoleLabel);
+        JTextField outputFormatRoleField = new JTextField("z.B. JSON, Text, Tabelle");
+        outputFormatRoleField.setAlignmentX(Component.LEFT_ALIGNMENT);
+        roleBasedPanel.add(outputFormatRoleField);
+        JLabel doNotDoRoleLabel = new JLabel("Was soll vermieden werden?");
+        doNotDoRoleLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        roleBasedPanel.add(doNotDoRoleLabel);
+        JTextField doNotDoRoleField = new JTextField("z.B. keine Fachbegriffe, keine Aufzählungen");
+        doNotDoRoleField.setAlignmentX(Component.LEFT_ALIGNMENT);
+        roleBasedPanel.add(doNotDoRoleField);
+
+        // Speichern Button
+        JButton roleBasedButton = new JButton("JSON generieren ");
+        roleBasedPanel.add(roleBasedButton);
+        JTextArea roleBasedTextArea = new JTextArea("");
+        configureTextArea(roleBasedTextArea);
+        roleBasedPanel.add(roleBasedTextArea);
+        String appendString4 = "\n\nAusdrücke für JSON-Path Abfragen: \n" +
+                "$.role | $.objective | \n" +
+                "$.task | $.style | \n" +
+                "$.length | $.output_format | \n" +
+                "$.doNotDo \n";
+        roleBasedButton.addActionListener(e -> {
+            String role = roleField.getText();
+            String objective = objectiveField.getText();
+            String task = taskField.getText();
+            String style = styleField.getText();
+            int maxLength;
+            try {
+                maxLength = Integer.parseInt(lengthField.getText());
+            } catch (NumberFormatException exception) {
+                maxLength = 100;
+                JOptionPane.showMessageDialog(null, "Bitte Zahlen verwenden in Outputlänge!");
+            }
+            String output_format = outputFormatRoleField.getText();
+            String doNotDo = doNotDoRoleField.getText();
+            roleBased roleBasedPrompt = new roleBased(role, objective, task, style, maxLength, output_format, doNotDo);
+            //Wandelt je nach Input und Userwahl den entsprechenden JSON String um
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String jsonOutput = gson.toJson(roleBasedPrompt);
+            String finalJsonOutput4 = jsonOutput + appendString4;
+            roleBasedTextArea.setText(finalJsonOutput4);;
+        });
 
 
         //3. CardLayout initialisieren
